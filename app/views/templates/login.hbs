@@ -1,0 +1,23 @@
+<div class="small-6 large-centered columns" role="content">
+  <form id='signin' action='/users/session' method='POST'>
+    <fieldset>
+      <legend>Login</legend>
+
+      <div class="row">
+        <div class="large-12 columns">
+          {{input type="email" name="email" placeholder="Email" required="required" value=email}}
+        </div>
+        <div class="large-12 columns">
+          {{input type="password" placeholder="Senha" name="password" value=password}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <button class="button small radius expand">Entrar</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
