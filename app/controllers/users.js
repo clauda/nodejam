@@ -42,11 +42,8 @@ exports.create = function (request, response) {
 }
 
 exports.show = function (request, response) {
-  var user = request.profile;
-  response.render('index', {
-    title: user.name,
-    user: user
-  })
+  response.setHeader("Content-Type", "application/json");
+  response.end(JSON.stringify(request.user));
 }
 
 exports.user = function (request, response, next, id) {

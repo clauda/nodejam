@@ -5,7 +5,6 @@ var home = require('../app/controllers/home')
 var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
 
 module.exports = function(app, passport){
-
 	app.get('/', home.index);
   app.get('/signup', users.signup);
   app.get('/logout', users.logout);
@@ -13,8 +12,7 @@ module.exports = function(app, passport){
   app.post('/users/session',
     passport.authenticate('local', {
       failureRedirect: '/',
-      // failureFlash: 'Invalid email or password.'
     }), users.session)
+  app.get('/profile', users.show);
   app.get('/users/:userId', users.show);
-  
 };

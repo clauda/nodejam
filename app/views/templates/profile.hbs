@@ -1,0 +1,26 @@
+<div class="small-6 large-centered columns" role="content">
+
+  <div class='panel'>
+    <h5>{{ model.name }}</h5>
+    <h6>{{ model.email }}</h6>
+  </div>
+
+  <form id='signin' action='/users/edit' method='POST'>
+    <fieldset>
+      <legend>Alterar Senha</legend>
+
+      <div class="row">
+        <div class="large-12 columns">
+          {{input type="password" placeholder="Nova Senha" name="password" value=password}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <button class="button small radius expand">Salvar</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
