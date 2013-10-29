@@ -14,22 +14,26 @@
 </head>
 <body>
 
-<script type="text/x-handlebars">
+  <script type="text/x-handlebars">
 
     <div class="row-fluid">
       <nav class="top-bar">
         <ul class="title-area">
           <li class="name">
-            <h1><a>[[ title ]] <small>This is my blog. Its awesome.</small></a></h1>
+            <h1><a>[[ title ]] <small>[[#user]][[ user.name ]][[/user]]</small></a></h1>
           </li>
         </ul>
         <section class="top-bar-section">
           <ul class="right">
-            <li>[[ user ]]</li>
             <li class="divider"></li>
             <li>{{#link-to 'index'}} Home {{/link-to}}</li>
-            <li>{{#link-to 'login'}} Login {{/link-to}}</li>
-            <li>{{#link-to 'register'}} Register {{/link-to}}</li>
+
+            [[^user]]
+              <li>{{#link-to 'register'}} Register {{/link-to}}</li>
+              <li>{{#link-to 'login'}} Login {{/link-to}}</li>
+            [[/user]]
+            
+            [[#user]]<li><a href='/logout'>Logout</a></li>[[/user]]
           </ul>
         </section>
       </nav>
@@ -40,14 +44,14 @@
       {{ outlet sidebar }}
     </div>
 
-</script>
+  </script>
 
   <script src="http://localhost:35729/livereload.js"></script>
   <script src="js/vendor/custom.modernizr.js"></script>
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0.js"></script>
   <script src="js/libs/ember-1.1.2.js"></script>
-  <script src="js/templates.js"></script>
-  <script src="js/jam.js"></script>
+  <script src="js/nodejam/templates.js"></script>
+  <script src="js/nodejam.js"></script>
 </body>
 </html>

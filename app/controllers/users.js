@@ -2,11 +2,6 @@ var mongoose = require('mongoose')
   , User = mongoose.model('User');
 
 var login = function (request, response) {
-  if (request.session.returnTo) {
-    response.redirect(request.session.returnTo)
-    delete request.session.returnTo
-    return
-  }
   response.redirect('/')
 }
 
@@ -14,12 +9,8 @@ exports.signin = function (request, response) {}
 
 exports.authCallback = login;
 
-exports.login = function (request, response) {
-  response.render('login', { title: 'Tagon8 Login' })
-}
-
 exports.signup = function (request, response) {
-  response.render('users/signup', {
+  response.render('index', {
     title: 'Sign up',
     user: new User()
   })
@@ -27,7 +18,7 @@ exports.signup = function (request, response) {
 
 exports.logout = function (request, response) {
   request.logout()
-  response.redirect('/login')
+  response.redirect('#/login')
 }
 
 exports.session = login;
@@ -36,7 +27,7 @@ exports.create = function (request, response) {
   var user = new User(request.body)
   user.save(function (err) {
     if (err) {
-      return response.render('users/signup', {
+      return response.render('index', {
         errors: err.errors,
         user: user,
         title: 'Sign up'
@@ -51,8 +42,8 @@ exports.create = function (request, response) {
 }
 
 exports.show = function (request, response) {
-  var user = request.profile
-  response.render('users/show', {
+  var user = request.profile;
+  response.render('index', {
     title: user.name,
     user: user
   })

@@ -39,7 +39,7 @@ module.exports = function (grunt) {
     },
     emberTemplates: {
       compile: {
-        files: { 'public/js/templates.js': ['app/views/templates/**/*.hbs'] },
+        files: { 'public/js/nodejam/templates.js': ['app/views/templates/**/*.hbs'] },
         options: {
           templateFileExtensions: /\.hbs/,
           templateName: function(sourceFile) {

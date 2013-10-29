@@ -1,26 +1,23 @@
 <div class="small-6 large-centered columns" role="content">
-  <form id='signup'>
+  <form id='signup' action='/users' method='POST'>
     <fieldset>
-      <legend>Register</legend>
+      <legend>Cadastro</legend>
 
       <div class="row">
         <div class="large-12 columns">
-          <label>Nome</label>
-          <input type="text" placeholder="name" required>
+          {{input type="text" name="name" placeholder="Nome" value=name}}
         </div>
         <div class="large-12 columns">
-          <label>Email</label>
-          <input type="email" placeholder="Email" required>
+          {{input type="email" placeholder="Email" name="email" value=email}}
         </div>
         <div class="large-12 columns">
-          <label>Senha</label>
-          <input type="password" placeholder="Senha" required>
+          {{input type="password" placeholder="Senha" name="password" value=password}}
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
-          <button class="button radius expand">Sign Up</button>
+          <button class="button small radius expand">Sign Up</button>
         </div>
       </div>
 

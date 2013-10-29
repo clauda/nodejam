@@ -1,22 +1,20 @@
 <div class="small-6 large-centered columns" role="content">
-  <form id='signin'>
+  <form id='signin' action='/users/session' method='POST'>
     <fieldset>
       <legend>Login</legend>
 
       <div class="row">
         <div class="large-12 columns">
-          <label>Email</label>
-          <input type="email" placeholder="Email" required>
+          {{input type="email" name="email" placeholder="Email" required="required" value=email}}
         </div>
         <div class="large-12 columns">
-          <label>Senha</label>
-          <input type="password" placeholder="Senha" required>
+          {{input type="password" placeholder="Senha" name="password" value=password}}
         </div>
       </div>
 
       <div class="row">
         <div class="large-12 columns">
-          <button class="button radius expand">Entrar</button>
+          <button class="button small radius expand">Entrar</button>
         </div>
       </div>
 

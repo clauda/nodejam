@@ -20,14 +20,3 @@ NodeJam.IndexRoute = Ember.Route.extend({
   }
 });
 
-NodeJam.LoginRoute = Ember.Route.extend({
-  renderTemplate: function() { this.render('login'); }
-});
-
-NodeJam.RegisterRoute = Ember.Route.extend({
-  renderTemplate: function() { this.render('register'); }
-});
-
-// NodeJam.SidebarRoute = Ember.Route.extend({
-//   renderTemplate: function() { this.render('sidebar', { outlet: 'sidebar' }); }
-// });

@@ -31,17 +31,12 @@ var validatePresenceOf = function (value) {
 }
 
 UserSchema.path('email').validate(function (email) {
-  // if you are authenticating by any of the oauth strategies, don't validate
-  if (authTypes.indexOf(this.provider) !== -1) return true
   return email.length
 }, 'Email cannot be blank')
 
 UserSchema.path('email').validate(function (email, fn) {
   var User = mongoose.model('User')
   
-  // if you are authenticating by any of the oauth strategies, don't validate
-  if (authTypes.indexOf(this.provider) !== -1) fn(true)
-
   // Check only when it is a new user or when email field is modified
   if (this.isNew || this.isModified('email')) {
     User.find({ email: email }).exec(function (err, users) {
@@ -51,17 +46,13 @@ UserSchema.path('email').validate(function (email, fn) {
 }, 'Email already exists')
 
 UserSchema.path('hashed_password').validate(function (hashed_password) {
-  // if you are authenticating by any of the oauth strategies, don't validate
-  if (authTypes.indexOf(this.provider) !== -1) return true
   return hashed_password.length
 }, 'Password cannot be blank')
-
 
 UserSchema.pre('save', function(next) {
   if (!this.isNew) return next()
 
-  if (!validatePresenceOf(this.password)
-    && authTypes.indexOf(this.provider) === -1)
+  if (!validatePresenceOf(this.password))
     next(new Error('Invalid password'))
   else
     next()
