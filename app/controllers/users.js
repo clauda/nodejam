@@ -15,10 +15,7 @@ exports.signin = function (request, response) {}
 exports.authCallback = login;
 
 exports.login = function (request, response) {
-  response.render('users/login', {
-    title: 'Login',
-    message: 'Error'
-  })
+  response.render('login', { title: 'Tagon8 Login' })
 }
 
 exports.signup = function (request, response) {

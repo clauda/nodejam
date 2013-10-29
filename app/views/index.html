@@ -6,42 +6,41 @@
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <title>Tagon8 Blog</title>
+  <title>[[ title ]]</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
 
 </head>
 <body>
 
-  <div class="row-fluid">
-    <nav class="top-bar">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a>Tagon8 [[ title ]] <small>This is my blog. It's awesome.</small></a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li class="divider"></li>
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Sign Up</a></li>
-        </ul>
-      </section>
-    </nav>
-  </div>
+<script type="text/x-handlebars">
 
-  <div class="row">
-    <!-- Main Blog Content -->
-    <script type="text/x-handlebars">
-      <div class="large-9 columns" role="content">
-        {{ outlet }}
-      </div>
-      
-      <aside class="large-3 columns">
-        {{ outlet sidebar }}
-      </aside>
-    </script>
-  </div>
+    <div class="row-fluid">
+      <nav class="top-bar">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a>[[ title ]] <small>This is my blog. Its awesome.</small></a></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li>[[ user ]]</li>
+            <li class="divider"></li>
+            <li>{{#link-to 'index'}} Home {{/link-to}}</li>
+            <li>{{#link-to 'login'}} Login {{/link-to}}</li>
+            <li>{{#link-to 'register'}} Register {{/link-to}}</li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="row">
+      {{ outlet }}
+      {{ outlet sidebar }}
+    </div>
+
+</script>
 
   <script src="http://localhost:35729/livereload.js"></script>
   <script src="js/vendor/custom.modernizr.js"></script>

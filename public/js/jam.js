@@ -5,21 +5,29 @@ NodeJam = Ember.Application.create({
 });
 
 NodeJam.Router.map(function() {
-  // put your routes here
-  // this.resource('sidebar', { path: "/" });
+  this.route('login');
+  this.route('register');
 });
 
 NodeJam.IndexRoute = Ember.Route.extend({
-  renderTemplate: function() {
-    this.render('index', { outlet: 'sidebar' });
-  },
   model: function() {
     return ['News', 'Code', 'Design', 'Fun'];
+  },
+
+  renderTemplate: function() {
+    this.render('index');
+    this.render('sidebar', { outlet: 'sidebar' });
   }
 });
 
+NodeJam.LoginRoute = Ember.Route.extend({
+  renderTemplate: function() { this.render('login'); }
+});
+
+NodeJam.RegisterRoute = Ember.Route.extend({
+  renderTemplate: function() { this.render('register'); }
+});
+
 // NodeJam.SidebarRoute = Ember.Route.extend({
-//   model: function(){
-//     return ['News', 'Code', 'Design', 'Fun'];
-//   }
+//   renderTemplate: function() { this.render('sidebar', { outlet: 'sidebar' }); }
 // });

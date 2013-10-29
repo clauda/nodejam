@@ -24,9 +24,9 @@ module.exports = function (grunt) {
         nospawn: true,
         livereload: reloadPort
       },
-      ember_templates: {
+      emberTemplates: {
         files: 'app/views/**/*.hbs',
-        tasks: ['ember_templates']
+        tasks: ['emberTemplates']
       },
       js: {
         files: [
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         tasks: ['develop', 'delayed-livereload']
       }
     },
-    ember_templates: {
+    emberTemplates: {
       compile: {
         files: { 'public/js/templates.js': ['app/views/templates/**/*.hbs'] },
         options: {
