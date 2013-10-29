@@ -54,7 +54,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "model.email", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h6>\n  </div>\n\n  <form id='signin' action='/users/edit' method='POST'>\n    <fieldset>\n      <legend>Alterar Senha</legend>\n\n      <div class=\"row\">\n        <div class=\"large-12 columns\">\n          ");
+  data.buffer.push("</h6>\n  </div>\n\n  <form id='change_password' action='/users/edit' method='POST'>\n    <fieldset>\n      <legend>Alterar Senha</legend>\n\n      <div class=\"row\">\n        <div class=\"large-12 columns\">\n          ");
   hashContexts = {'type': depth0,'placeholder': depth0,'name': depth0,'value': depth0};
   hashTypes = {'type': "STRING",'placeholder': "STRING",'name': "STRING",'value': "ID"};
   options = {hash:{
