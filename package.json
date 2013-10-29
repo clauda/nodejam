@@ -1,0 +1,31 @@
+{
+  "name": "nodejam",
+  "version": "0.0.1",
+  "description": "tagon8 blog test",
+  "author": "@krawdyah",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/krawdyah/nodejam.git"
+  },
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+    "express": "~3.3.4",
+    "hogan-express": "~0.5",
+    "mongoose": "~3.6.14"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-develop": "~0.1.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-compass": "~0.2.0",
+    "request": "~2.22.0",
+    "time-grunt": "~0.1.1",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-ember-templates": "~0.4.15"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
