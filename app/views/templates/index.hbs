@@ -4,7 +4,7 @@
   
     <article>
       <h3><a href="#">{{ article.title }}</a></h3>
-      <h6>Written by {{ article.user.name }} on {{ article.created_at }}</h6>
+      <h6>Written by {{ article.user.name }} on {{ formatted article.created_at }}</h6>
       {{ article.body }}
     </article>
     <hr />
