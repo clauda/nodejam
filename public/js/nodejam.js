@@ -4,32 +4,11 @@ NodeJam = Ember.Application.create({
   LOG_ACTIVE_GENERATION: true
 });
 
-NodeJam.Router.map(function() {
-  this.route('login');
-  this.route('register');
-  this.resource('profile');
-});
+NodeJam.ApplicationSerializer = DS.RESTSerializer.extend({
+  primaryKey: '_id',
 
-NodeJam.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['News', 'Code', 'Design', 'Fun'];
-  },
-
-  renderTemplate: function() {
-    this.render('index');
-    this.render('sidebar', { outlet: 'sidebar' });
-  }
-});
-
-NodeJam.ProfileRoute = Ember.Route.extend({
-  model: function(){
-    return Ember.$.getJSON('/profile')
-      .fail(function(){
-        return this.transitionTo('login');
-      });
-  },
-
-  renderTemplate: function() {
-    this.render('profile');
+  normalize: function(type, hash) {
+    hash.id = hash._id;
+    return this._super(type, hash); 
   }
 });
