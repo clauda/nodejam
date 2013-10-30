@@ -4,10 +4,16 @@
   
     <article>
       <h3><a href="#">{{ article.title }}</a></h3>
-      <h6>Written by {{ article.user.name }} on {{ formatted article.created_at }}</h6>
-      {{ article.body }}
+      <h6 class='subheader'>Written by {{ article.user.name }} on {{ formatted article.created_at }}</h6>
+      <p>{{ article.body }}</p>
+
+      <div class='right'>
+        {{#each tag in article.tags}}
+          <span class='label'>{{tag}}</span>
+        {{/each}}
+      </div>
     </article>
-    <hr />
+    <br /><hr />
 
   {{/each}}
 
