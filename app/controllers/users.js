@@ -1,6 +1,16 @@
 var mongoose = require('mongoose')
   , User = mongoose.model('User');
 
+exports.index = function(request, response){
+  response.setHeader("Content-Type", "application/json");
+
+  User
+    .find()
+    .exec(function(err, data) {
+      response.send({users: data});
+    });
+}
+
 exports.logout = function (request, response) {
   request.logout()
   response.redirect('/')

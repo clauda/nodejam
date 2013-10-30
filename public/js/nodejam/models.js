@@ -3,7 +3,8 @@ NodeJam.Article = DS.Model.extend({
   title: DS.attr(),
   body: DS.attr(),
   published: DS.attr(),
-  tags: DS.attr()
+  tags: DS.attr(),
+  user: DS.attr()
 });
 
 NodeJam.Comment = DS.Model.extend({

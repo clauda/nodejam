@@ -6,6 +6,7 @@ var home = require('../app/controllers/home')
 module.exports = function(app, passport){
 	app.get('/', home.index);
   app.get('/logout', users.logout);
+  app.get('/users', users.index);
   app.post('/users', users.create);
   app.post('/users/session',
     passport.authenticate('local', {

@@ -7,6 +7,7 @@ exports.index = function(request, response){
   Article
     .find()
     .sort('-created_at')
+    .populate('user')
     .exec(function(err, data) {
       response.send({articles: data});
     });
