@@ -1,32 +1,34 @@
 var mongoose = require('mongoose')
   , User = mongoose.model('User');
 
-var login = function (request, response) {
+exports.logout = function (request, response) {
+  request.logout()
   response.redirect('/')
 }
 
-exports.signin = function (request, response) {}
-
-exports.authCallback = login;
-
-exports.signup = function (request, response) {
-  response.render('index', {
-    title: 'Sign up',
-    user: new User()
-  })
+exports.session = function (request, response) {
+  if (!request.user) { return response.redirect('#/login'); }
+  response.redirect('#/profile');
 }
 
-exports.logout = function (request, response) {
-  request.logout()
-  response.redirect('#/login')
+exports.update = function (request, response, next) {
+  User.findById(request.user.id, 
+    function(err, user){ 
+      user.password = request.body.password 
+      user.save(function (err, user) {
+        if (err) return next(err)
+        if (!user) return next(new Error('Failed to load User ' + id))
+        request.profile = user
+      });
+    });
+  response.redirect('#/profile')
 }
-
-exports.session = login;
 
 exports.create = function (request, response) {
   var user = new User(request.body)
   user.save(function (err) {
     if (err) {
+      console.log(err.errors);
       return response.render('index', {
         errors: err.errors,
         user: user,
@@ -36,25 +38,13 @@ exports.create = function (request, response) {
 
     request.logIn(user, function(err) {
       if (err) return next(err)
-      return response.redirect('/')
+      return response.redirect('#/profile')
     })
   })
 }
 
-exports.show = function (request, response) {
-  var user = request.profile;
-  response.render('index', {
-    title: user.name,
-    user: user
-  })
+exports.profile = function (request, response) {
+  response.setHeader("Content-Type", "application/json");
+  response.end(JSON.stringify(request.user));
 }
 
-exports.user = function (request, response, next, id) {
-  User.findOne({ _id : id })
-    .exec(function (err, user) {
-      if (err) return next(err)
-      if (!user) return next(new Error('Failed to load User ' + id))
-      request.profile = user
-      next()
-    })
-}

@@ -1,14 +1,6 @@
-/**
- * Module dependencies.
- */
-
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema
   , crypto = require('crypto');
-
-/**
- * User Schema
- */
 
 var UserSchema = new Schema({
   name: { type: String, default: '' },
@@ -36,8 +28,6 @@ UserSchema.path('email').validate(function (email) {
 
 UserSchema.path('email').validate(function (email, fn) {
   var User = mongoose.model('User')
-  
-  // Check only when it is a new user or when email field is modified
   if (this.isNew || this.isModified('email')) {
     User.find({ email: email }).exec(function (err, users) {
       fn(!err && users.length === 0)

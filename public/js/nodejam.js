@@ -7,6 +7,7 @@ NodeJam = Ember.Application.create({
 NodeJam.Router.map(function() {
   this.route('login');
   this.route('register');
+  this.resource('profile');
 });
 
 NodeJam.IndexRoute = Ember.Route.extend({
@@ -20,3 +21,15 @@ NodeJam.IndexRoute = Ember.Route.extend({
   }
 });
 
+NodeJam.ProfileRoute = Ember.Route.extend({
+  model: function(){
+    return Ember.$.getJSON('/profile')
+      .fail(function(){
+        return this.transitionTo('login');
+      });
+  },
+
+  renderTemplate: function() {
+    this.render('profile');
+  }
+});
