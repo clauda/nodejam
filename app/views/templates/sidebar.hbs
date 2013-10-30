@@ -2,7 +2,7 @@
   <h5>Posts</h5>
   <ul class="side-nav">
     {{#each article in model}}
-    <li>{{ article.title }}</li>
+    <li>{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</li>
     {{/each}}
   </ul>
 </aside>
