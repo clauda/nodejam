@@ -3,7 +3,7 @@
   {{#each article in model}}
   
     <article>
-      <h3><a href="#">{{ article.title }}</a></h3>
+      <h3>{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</h3>
       <h6 class='subheader'>Written by {{ article.user.name }} on {{ formatted article.created_at }}</h6>
       <p>{{ article.body }}</p>
 

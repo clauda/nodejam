@@ -16,4 +16,5 @@ module.exports = function(app, passport){
   app.post('/users/edit', auth.requiresLogin, users.update);
   app.get('/articles', articles.index);
   app.post('/articles', auth.requiresLogin, articles.create);
+  app.get('/articles/:article_id', articles.show);
 };

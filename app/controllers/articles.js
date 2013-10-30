@@ -9,7 +9,7 @@ exports.index = function(request, response){
     .sort('-created_at')
     .populate('user')
     .exec(function(err, data) {
-      response.send({articles: data});
+      response.send({ articles: data });
     });
 }
 
@@ -24,4 +24,14 @@ exports.create = function (request, response) {
     }
     response.redirect('/');
   })
+}
+
+exports.show = function (request, response) {
+  response.setHeader("Content-Type", "application/json");
+  Article
+    .findById(request.params.article_id)
+    .populate('user')
+    .exec(function(err, data){
+      response.send({ article: data });
+    });
 }

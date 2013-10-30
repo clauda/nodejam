@@ -32,7 +32,15 @@ NodeJam.ProfileRoute = Ember.Route.extend({
   }
 });
 
-NodeJam.ArticleRoute = Ember.Route.extend();
+NodeJam.ArticleRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('article', params.articleId); 
+  },
+  renderTemplate: function() {
+    this.render('articles.article');
+  }
+});
+
 NodeJam.ArticlesRoute = Ember.Route.extend();
 NodeJam.ArticlesNewRoute = Ember.Route.extend();
 
