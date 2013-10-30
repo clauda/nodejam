@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="large-12 columns">
+    <label>Título</label>
+    {{input type="text" value=title placeholder="Untitled"}}
+  </div>
+
+  <div class="large-12 columns">
+    <label>Texto</label>
+    {{textarea value=body cols="80" rows="10"}}
+  </div>
+
+  <div class="large-12 columns">
+    <label>Publicada?</label>
+    {{input type="checkbox" name="published" checked=published}}
+  </div>
+
+  <div class="large-12 columns">
+    <label>Tags (separadas por vírgula)</label>
+    {{input type="text" value=tags}}
+  </div>
+</div>

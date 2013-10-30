@@ -1,0 +1,17 @@
+<div class="small-12 large-centered columns">
+  <form {{action create on="submit"}}>
+
+    <fieldset>
+      <legend>Novo Post</legend>
+
+      {{ partial "articles/form" }}
+
+      <div class="row">
+        <div class="large-12 columns">
+          {{ panic "Salvar" }}
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
