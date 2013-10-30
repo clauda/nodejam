@@ -1,25 +1,19 @@
+NodeJam.ArticlesNewController = Ember.ArrayController.extend({
 
-NodeJam.ApplicationController = Ember.Controller.extend({
-  isLoggedIn: false,
+  actions: {
 
-  // when a user enters the app unauthenticated, the transition
-  // to where they are going is saved off so it can be retried
-  // when they have logged in.
-  savedTransition: null,
+    create: function() {
+      var router = this.get('target');
+      var data = this.getProperties('title', 'body', 'tags', 'published')
+      var post = this.get('model');
 
-  login: function() {
-    this.setProperties({ savedTransition: null, isLoggedIn: true });
-  },
-  
-  logout: function() {
-    this.set('isLoggedIn', true);
+      $.post('/articles', { article: data }, function(results) {
+        router.transitionTo('index');
+      }).fail(function(jqxhr, textStatus, error ) {
+        var errs = JSON.parse(jqxhr.responseText);
+        post.set('errors', errs.errors);
+      });
+    }
   }
-});
 
-NodeJam.UserController = Ember.ObjectController.extend({
-  signin: function() {
-    var email = this.get('email')
-      , password = this.get('password');
-    console.log('Login: ' + email + ' Password: ' + password);
-  }
 });
