@@ -17,4 +17,12 @@ module.exports = function(app, passport){
   app.get('/articles', articles.index);
   app.post('/articles', auth.requiresLogin, articles.create);
   app.get('/articles/:article_id', articles.show);
+  
+  /**
+  * TODO:
+  * - filters by tag
+  * - scope by user
+  * - comments
+  **/
+
 };

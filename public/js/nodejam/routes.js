@@ -10,7 +10,7 @@ NodeJam.Router.map(function() {
 
 NodeJam.IndexRoute = Ember.Route.extend({
   model: function() {
-    return this.store.findAll('article'); 
+    return this.store.find('article', { published: true });
   },
 
   renderTemplate: function() {

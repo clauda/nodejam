@@ -5,7 +5,7 @@ exports.index = function(request, response){
   response.setHeader("Content-Type", "application/json");
 
   Article
-    .find()
+    .find(request.query)
     .sort('-created_at')
     .populate('user')
     .exec(function(err, data) {
