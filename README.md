@@ -1,13 +1,22 @@
 ### Node JAM
-### Blog Test
+### Blog Sample
 
 NodeJS w/ ExpressJS, EmberJS, Mongoose
 
-Addons:
-- EJS
-- Foundation 4
-- Grunt
+also Mustache, Grunt, and Foundation
+
 
 #### Usage
 
-`grunt`
+run `grunt` or `node server.js`
+
+##### TODO
+
+- filters by tag
+- scope by user
+- comments
+- edit article
+- delete article
+- flash messages
+- coffee compile
+- tests
