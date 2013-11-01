@@ -1,17 +1,14 @@
-<div class="small-12 large-centered columns">
-  <form {{action create on="submit"}}>
+<div class="pure-u-1">
+  <div class="content">
+    <form class='pure-form pure-form-aligned' {{action create on="submit"}}>
 
-    <fieldset>
-      <legend>Novo Post</legend>
+      <fieldset>
+        <legend>Novo Post</legend>
 
-      {{ partial "articles/form" }}
+        {{ partial "articles/form" }}
 
-      <div class="row">
-        <div class="large-12 columns">
-          {{ panic "Salvar" }}
-        </div>
-      </div>
-
-    </fieldset>
-  </form>
+        {{ panic "Salvar" }}
+      </fieldset>
+    </form>
+  </div>
 </div>

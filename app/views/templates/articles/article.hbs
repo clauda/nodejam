@@ -1,14 +1,20 @@
-<div class="small-12 large-centered columns">
-  <article>
-    <h3>{{#link-to 'article' model.id}}{{ model.title }}{{/link-to}}</h3>
-    <h6 class='subheader'>Written by {{ model.user.name }} on {{ formatted model.created_at }}</h6>
-    <p>{{ model.body }}</p>
+<div class="pure-u-1">
+  <div class="content">
+    <section class="post">
+      <header class="post-header">
+        <h2 class='post-title'>{{#link-to 'article' model.id}}{{ model.title }}{{/link-to}}</h2>
 
-    <div class='right'>
-      {{#each tag in model.tags}}
-        <span class='label'>{{tag}}</span>
-      {{/each}}
-    </div>
-  </article>
-  <br /><hr />
+        <p class='post-meta'>
+         By {{ model.user.name }} on {{ formatted model.created_at }}
+
+        {{#each tag in model.tags}}
+          <a class="post-category post-category-design" href="#">{{tag}}</a>
+        {{/each}}
+      </header>
+         
+      <div class="post-description">
+        <p>{{ model.body }}</p>
+      </div>
+    </section>
+  </div>
 </div>

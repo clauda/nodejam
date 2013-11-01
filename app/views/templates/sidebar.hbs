@@ -1,8 +1,9 @@
-<aside class="large-3 columns">
-  <h5>Posts</h5>
-  <ul class="side-nav">
-    {{#each article in model}}
-    <li>{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</li>
-    {{/each}}
-  </ul>
-</aside>
+<div id='menu'>
+  <div class='pure-menu pure-menu-open'>
+    <ul>
+      {{#each article in model}}
+      <li>{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

@@ -1,21 +1,20 @@
-<div class="row">
-  <div class="large-12 columns">
-    <label>Título</label>
-    {{input type="text" value=title placeholder="Untitled"}}
-  </div>
+<div class="pure-control-group">
+  <label>Título</label>
+  {{input type="text" value=title placeholder="Untitled" class="pure-input-2-3"}}
+</div>
 
-  <div class="large-12 columns">
-    <label>Texto</label>
-    {{textarea value=body cols="80" rows="10"}}
-  </div>
+<div class="pure-control-group">
+  <label>Texto</label>
+  {{textarea value=body cols="80" rows="20" class="pure-input-2-3"}}
+</div>
 
-  <div class="large-12 columns">
-    <label>Publicada?</label>
+<div class="pure-control-group">
+  <label class="pure-checkbox">Publicada?
     {{input type="checkbox" name="published" checked=published}}
-  </div>
+  </label>
+</div>
 
-  <div class="large-12 columns">
-    <label>Tags (separadas por vírgula)</label>
-    {{input type="text" value=tags}}
-  </div>
+<div class="pure-control-group">
+  <label>Tags (separadas por vírgula)</label>
+  {{input type="text" value=tags class="pure-input-2-3"}}
 </div>

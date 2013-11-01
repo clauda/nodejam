@@ -1,25 +1,27 @@
-<div class="large-9 columns" role="content">
-  
-  {{#each article in model}}
-  
-    <article>
-      <h3>{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</h3>
+<div class="pure-u-1">
+  <div class="content">
+    <div class="posts">
+      <h1 class="content-subhead">Lastest Posts</h1>
 
-      {{#unless article.published}}
-        <span class='label secondary right'>Draft</span>
-      {{/unless}}
+      {{#each article in model}}
+        <section class="post">
+          <header class="post-header">
+            <h2 class="post-title">{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</h2>
 
-      <h6 class='subheader'>Written by {{ article.user.name }} on {{ formatted article.created_at }}</h6>
-      <p>{{{ article.body }}}</p>
+            <p class="post-meta">
+              By {{ article.user.name }}  on {{ formatted article.created_at }}
 
-      <div class='right'>
-        {{#each tag in article.tags}}
-          <span class='label'>{{tag}}</span>
-        {{/each}}
-      </div>
-    </article>
-    <br /><hr />
+              {{#each tag in article.tags}}
+                <a class="post-category post-category-design" href="#">{{tag}}</a>
+              {{/each}}
+            </p>
+          </header>
 
-  {{/each}}
-
+          <div class="post-description">
+            <p>{{{ article.body }}}</p>
+          </div>
+        </section>
+      {{/each}}
+    </div>
+  </div>
 </div>

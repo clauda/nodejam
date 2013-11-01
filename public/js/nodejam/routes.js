@@ -15,7 +15,7 @@ NodeJam.IndexRoute = Ember.Route.extend({
 
   renderTemplate: function() {
     this.render('index');
-    this.render('sidebar', { outlet: 'sidebar' });
+    // this.render('sidebar', { outlet: 'sidebar' });
   }
 });
 
