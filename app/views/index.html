@@ -5,49 +5,46 @@
 <head>
   <meta charset="utf-8" />
   <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[[ title ]]</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+  <link rel="stylesheet" href="css/blog.css">
   <link rel="stylesheet" href="css/app.css">
-
 </head>
 <body>
 
   <script type="text/x-handlebars">
-
-    <div class="row-fluid">
-      <nav class="top-bar">
-        <ul class="title-area">
-          <li class="name">
-            <h1><a>[[ title ]] <small>[[#user]][[ user.name ]][[/user]]</small></a></h1>
-          </li>
-        </ul>
-        <section class="top-bar-section">
-          <ul class="right">
-            <li class="divider"></li>
-            <li>{{#link-to 'index'}} Home {{/link-to}}</li>
-
-            [[^user]]
-              <li>{{#link-to 'register'}} Register {{/link-to}}</li>
-              <li>{{#link-to 'login'}} Login {{/link-to}}</li>
-            [[/user]]
-            
-            [[#user]]
-              <li>{{#link-to 'profile'}} Profile {{/link-to}}</li>
-              <li>{{#link-to 'articles.new'}} Novo Post {{/link-to}}</li>
-              <li><a href='/logout'>Logout</a></li>
-            [[/user]]
-          </ul>
-        </section>
-      </nav>
+    <div class="pure-menu pure-menu-open pure-menu-horizontal fright">
+      <ul class='fright'>
+        <li>{{#link-to 'index'}} Home {{/link-to}}</li>
+        [[#user]]
+          <li>{{#link-to 'profile'}} Profile {{/link-to}}</li>
+          <li>{{#link-to 'articles.new'}} Novo Post {{/link-to}}</li>
+          <li><a href='/logout'>Logout</a></li>
+        [[/user]]
+        [[^user]]
+          <li>{{#link-to 'register'}} Register {{/link-to}}</li>
+          <li>{{#link-to 'login'}} Login {{/link-to}}</li>
+        [[/user]]
+      </ul>
     </div>
 
-    <div class="row">
+    <div class="pure-g-r" id="layout">
+
+      <div class="sidebar pure-u">
+        <header class="header">
+          <hgroup>
+            <h2 class="brand-tagline">
+              [[#user]]Hey, [[ user.name ]][[/user]]</small>
+            </h2>
+            <h1 class="brand-title">[[ title ]]</h1>
+          </hgroup>
+        </header>
+        {{ outlet sidebar }}
+      </div>
+
       {{ outlet }}
-      {{ outlet sidebar }}
     </div>
-
   </script>
 
   <script src="http://localhost:35729/livereload.js"></script>

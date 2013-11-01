@@ -1,26 +1,16 @@
-<div class="small-6 large-centered columns" role="content">
-  <form id='signup' action='/users' method='POST'>
-    <fieldset>
-      <legend>Cadastro</legend>
+<div class="pure-u-1">
+  <div class="content">
+    <form class='pure-form' id='signup' action='/users' method='POST'>
+      <fieldset class='pure-group'>
+        <legend>Cadastro</legend>
 
-      <div class="row">
-        <div class="large-12 columns">
-          {{input type="text" name="name" placeholder="Nome" value=name}}
-        </div>
-        <div class="large-12 columns">
-          {{input type="email" placeholder="Email" name="email" value=email}}
-        </div>
-        <div class="large-12 columns">
-          {{input type="password" placeholder="Senha" name="password" value=password}}
-        </div>
-      </div>
+        {{input type="text" name="name" placeholder="Nome" value=name class="pure-input-1-2"}}
+        {{input type="email" placeholder="Email" name="email" value=email class="pure-input-1-2"}}
+        {{input type="password" placeholder="Senha" name="password" value=password class="pure-input-1-2"}}
 
-      <div class="row">
-        <div class="large-12 columns">
-          {{ panic "Entrar" }}
-        </div>
-      </div>
+        {{ panic "Entrar" }}
 
-    </fieldset>
-  </form>
+      </fieldset>
+    </form>
+  </div>
 </div>

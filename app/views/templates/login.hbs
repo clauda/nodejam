@@ -1,23 +1,14 @@
-<div class="small-6 large-centered columns" role="content">
-  <form id='signin' action='/users/session' method='POST'>
-    <fieldset>
-      <legend>Login</legend>
+<div class="pure-u-1"> 
+  <div class="content"> 
+    <form class="pure-form" id='signin' action='/users/session' method='POST'>
+      <fieldset class='pure-group'>
+        <legend>Login</legend>
 
-      <div class="row">
-        <div class="large-12 columns">
-          {{input type="email" name="email" placeholder="Email" required="required" value=email}}
-        </div>
-        <div class="large-12 columns">
-          {{input type="password" placeholder="Senha" name="password" value=password}}
-        </div>
-      </div>
+        {{input type="email" name="email" placeholder="Email" class="pure-input-1-2" value=email}}
+        {{input type="password" placeholder="Senha" class="pure-input-1-2" name="password" value=password}}
 
-      <div class="row">
-        <div class="large-12 columns">
-          {{ panic "Entrar" }}
-        </div>
-      </div>
-
-    </fieldset>
-  </form>
+        {{ panic "Entrar" }}
+      </fieldset>
+    </form>
+  </div>
 </div>

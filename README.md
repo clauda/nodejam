@@ -1,9 +1,9 @@
 ### Node JAM
-### Blog Sample
+#### Blog Sample
 
 NodeJS w/ ExpressJS, EmberJS, Mongoose
 
-also Mustache, Grunt, and Foundation
+also Mustache, Grunt, and PureCSS
 
 
 #### Usage

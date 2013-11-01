@@ -1,26 +1,21 @@
-<div class="small-6 large-centered columns" role="content">
+<div class="pure-u-1">
 
-  <div class='panel'>
-    <h5>{{ model.name }}</h5>
-    <h6>{{ model.email }}</h6>
+  <div class="u-header">
+    <h1>{{ model.name }}</h1>
+    <h2>{{ model.email }}</h2>
   </div>
 
-  <form id='change_password' action='/users/edit' method='POST'>
-    <fieldset>
-      <legend>Alterar Senha</legend>
-
-      <div class="row">
-        <div class="large-12 columns">
+  <div class="content">
+    <form class='pure-form pure-form-aligned' id='change_password' action='/users/edit' method='POST'>
+      <fieldset>
+        <legend>Alterar Senha</legend>
+        <div class="pure-control-group">
+          <label>Nova Senha</label>
           {{input type="password" placeholder="Nova Senha" name="password" value=password}}
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="large-12 columns">
           {{ panic "Salvar" }}
         </div>
-      </div>
 
-    </fieldset>
-  </form>
+      </fieldset>
+    </form>
+  </div>
 </div>
