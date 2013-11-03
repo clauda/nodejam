@@ -156,12 +156,10 @@ function program1(depth0,data) {
   stack2 = helpers.each.call(depth0, "tag", "in", "article.tags", {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n            </p>\n          </header>\n\n          <div class=\"post-description\">\n            <p>");
-  hashContexts = {'unescaped': depth0};
-  hashTypes = {'unescaped': "STRING"};
-  stack2 = helpers._triageMustache.call(depth0, "article.body", {hash:{
-    'unescaped': ("true")
-  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.truncate || depth0.truncate),stack1 ? stack1.call(depth0, "article.body", options) : helperMissing.call(depth0, "truncate", "article.body", options))));
   data.buffer.push("</p>\n          </div>\n        </section>\n      ");
   return buffer;
   }

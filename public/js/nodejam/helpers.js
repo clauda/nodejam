@@ -5,3 +5,7 @@ Ember.Handlebars.helper('panic', function(text) {
 Ember.Handlebars.helper('formatted', function(date) {
   return moment(Date.parse(date)).fromNow();
 });
+
+Ember.Handlebars.helper('truncate', function(text) {
+  return new Handlebars.SafeString(text.substring(0, 250) + '...');
+});
