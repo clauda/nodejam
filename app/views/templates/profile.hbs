@@ -19,3 +19,12 @@
     </form>
   </div>
 </div>
+
+<div class="pure-u-1">
+  <div class="content">
+    <div class="posts">
+      <h1 class="content-subhead">Your Posts [{{ model.articles.length }}]</h1>
+      {{ render '_posts' model.articles }}
+    </div>
+  </div>
+</div>

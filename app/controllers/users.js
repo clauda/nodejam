@@ -55,6 +55,13 @@ exports.create = function (request, response) {
 
 exports.profile = function (request, response) {
   response.setHeader("Content-Type", "application/json");
-  response.end(JSON.stringify(request.user));
+
+   User
+    .findById(request.user._id)
+    .populate('articles')
+    .exec(function(err, data) {
+      if (err) { console.log(err) }
+      response.send( JSON.stringify(data) );
+    });
 }
 

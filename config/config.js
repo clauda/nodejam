@@ -9,7 +9,7 @@ var config = {
       name: 'nodejam'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejam-development'
+    db: 'mongodb://localhost/nodejam-dev'
   },
 
   test: {
@@ -27,7 +27,7 @@ var config = {
       name: 'nodejam'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejam-production'
+    db: 'mongodb://localhost/nodejam'
   }
 };
 

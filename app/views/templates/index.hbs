@@ -2,26 +2,7 @@
   <div class="content">
     <div class="posts">
       <h1 class="content-subhead">Lastest Posts</h1>
-
-      {{#each article in model}}
-        <section class="post">
-          <header class="post-header">
-            <h2 class="post-title">{{#link-to 'article' article.id}}{{ article.title }}{{/link-to}}</h2>
-
-            <p class="post-meta">
-              By {{ article.user.name }}  on {{ formatted article.created_at }}
-
-              {{#each tag in article.tags}}
-                {{#link-to 'articles.tagged' tag class="post-category post-category-design"}}{{tag}}{{/link-to}}
-              {{/each}}
-            </p>
-          </header>
-
-          <div class="post-description">
-            <p>{{ truncate article.body }}</p>
-          </div>
-        </section>
-      {{/each}}
+      {{ partial 'posts' }}
     </div>
   </div>
 </div>

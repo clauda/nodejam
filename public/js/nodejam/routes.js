@@ -16,9 +16,10 @@ NodeJam.IndexRoute = Ember.Route.extend({
 
 NodeJam.ProfileRoute = Ember.Route.extend({
   model: function(){
+    var that = this;
     return Ember.$.getJSON('/profile')
       .fail(function(){
-        return this.transitionTo('login');
+        return that.transitionTo('login');
       });
   },
   renderTemplate: function() { this.render('profile') }
@@ -31,7 +32,7 @@ NodeJam.ArticleRoute = Ember.Route.extend({
 
 NodeJam.ArticlesTaggedRoute = Ember.Route.extend({
   model: function(params) {
-    return this.store.find('article', { published: true, tags: params.tag }); 
+    return this.store.find('article', { published: true, tags: params.tag });
   }
 });
 

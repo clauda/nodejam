@@ -16,9 +16,13 @@ exports.index = function(request, response){
 }
 
 exports.create = function (request, response) {
-  var post = new Article(request.body.article)
-  post.user = request.user;
+  var post = new Article(request.body.article);
+  var user = request.user;
+  post.user = user._id;
   post.save(function (err) {
+    user.articles.push(post);
+    user.save();
+
     if (err) {
       return response.render('index', {
         errors: err.errors
