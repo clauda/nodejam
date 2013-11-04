@@ -3,9 +3,11 @@ var mongoose = require('mongoose')
 
 exports.index = function(request, response){
   response.setHeader("Content-Type", "application/json");
+  var query = request.query;
+  if (request.query.tags){ query = { published: true, tags: { $in: [request.query.tags] } } };
 
   Article
-    .find(request.query)
+    .find(query)
     .sort('-created_at')
     .populate('user')
     .exec(function(err, data) {

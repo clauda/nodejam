@@ -1,12 +1,17 @@
 var mongoose = require('mongoose')
+  , sugar = require('sugar')
   , Schema = mongoose.Schema;
 
 var getTags = function (tags) { return tags.join(',') }
-var setTags = function (tags) { return tags.split(',') }
+var setTags = function (tags) { 
+  var arr = [];
+  tags.split(',').each(function(tag){ arr.push(tag.trim()); })
+  return arr;
+}
 
 var ArticleSchema = new Schema({
-  title: {type : String, default : '', trim : true},
-  body: {type : String, default : '', trim : true},
+  title: { type : String, default : '', trim : true },
+  body: { type : String, default : '', trim : true },
   created_at: { type: Date, default: Date.now },
   published: { type: Boolean, default: false },
   user: { type: Schema.ObjectId, ref: 'User' },

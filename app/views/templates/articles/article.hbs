@@ -8,7 +8,7 @@
          By {{ model.user.name }} on {{ formatted model.created_at }}
 
         {{#each tag in model.tags}}
-          <a class="post-category post-category-design" href="#">{{tag}}</a>
+          {{#link-to 'articles.tagged' tag class="post-category post-category-design"}}{{tag}}{{/link-to}}
         {{/each}}
       </header>
          

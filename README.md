@@ -12,7 +12,6 @@ run `grunt` or `node server.js`
 
 ##### TODO
 
-- filters by tag
 - scope by user
 - comments
 - edit article
