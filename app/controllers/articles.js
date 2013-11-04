@@ -16,6 +16,7 @@ exports.index = function(request, response){
 }
 
 exports.create = function (request, response) {
+  response.setHeader("Content-Type", "application/json");
   var post = new Article(request.body.article);
   var user = request.user;
   post.user = user._id;
@@ -28,7 +29,7 @@ exports.create = function (request, response) {
         errors: err.errors
       })
     }
-    response.redirect('/');
+    response.send(post);
   })
 }
 

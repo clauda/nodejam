@@ -13,7 +13,7 @@ NodeJam.ArticlesNewController = Ember.ArrayController.extend({
       var post = this.get('model');
 
       $.post('/articles', { article: data }, function(results) {
-        router.transitionTo('index');
+        router.transitionTo('article', results._id);
       }).fail(function(jqxhr, textStatus, error ) {
         var errs = JSON.parse(jqxhr.responseText);
         post.set('errors', errs.errors);
