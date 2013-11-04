@@ -33,6 +33,10 @@ NodeJam.ArticleRoute = Ember.Route.extend({
 NodeJam.ArticlesTaggedRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('article', { published: true, tags: params.tag });
+  },
+  setupController: function(controller, model) { 
+    controller.set('model', model);
+    controller.set('tag', model.query.tags);
   }
 });
 
