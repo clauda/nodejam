@@ -58,7 +58,7 @@ exports.profile = function (request, response) {
 
    User
     .findById(request.user._id)
-    .populate('articles')
+    .populate('articles', '', null, { sort: { created_at: -1 } })
     .exec(function(err, data) {
       if (err) { console.log(err) }
       response.send( JSON.stringify(data) );

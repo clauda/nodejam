@@ -12,10 +12,10 @@ run `grunt` or `node server.js`
 
 ##### TODO
 
-- scope by user
-- comments
 - edit article
 - delete article
+- comments
 - flash messages
+- pagination
 - coffee compile
 - tests
