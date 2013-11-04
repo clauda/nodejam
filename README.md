@@ -8,6 +8,7 @@ also Mustache, Grunt, and PureCSS
 
 #### Usage
 
+`npm install`
 run `grunt` or `node server.js`
 
 ##### TODO

@@ -41,6 +41,12 @@ NodeJam.ArticlesTaggedRoute = Ember.Route.extend({
 });
 
 NodeJam.ArticlesRoute = Ember.Route.extend();
-NodeJam.ArticlesNewRoute = Ember.Route.extend();
+NodeJam.ArticlesNewRoute = Ember.Route.extend({
+  beforeModel: function(){
+    if (!this.controllerFor('auth').get('isLoggedIn')) { 
+      return this.transitionTo('login'); 
+    }
+  }
+});
 
 
