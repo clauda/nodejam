@@ -3,8 +3,9 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
 var getTags = function (tags) { return tags.join(',') }
-var setTags = function (tags) { 
+var treatTags = function (tags) { 
   var arr = [];
+  if(typeof tags !== 'string'){ tags = tags.join(',') }
   tags.split(',').each(function(tag){ arr.push(tag.trim()); })
   return arr;
 }
@@ -16,7 +17,7 @@ var ArticleSchema = new Schema({
   published: { type: Boolean, default: false },
   user: { type: Schema.ObjectId, ref: 'User' },
   comments: [{ body: String, author: String, date: Date }],
-  tags: { type: [], get: getTags, set: setTags, index: true }
+  tags: { type: [], get: getTags, set: treatTags, index: true }
 });
 
 ArticleSchema.path('title').validate(function (title) {

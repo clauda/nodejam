@@ -47,7 +47,7 @@
           </div>
 
           <div class='actions'>
-            <a class="pure-button pure-button-small pure-button-primary" href="#">Edit</a>
+            {{#link-to 'articles.edit' article._id class="pure-button pure-button-small pure-button-primary"}} Edit {{/link-to}}
             <a class="pure-button pure-button-small pure-button-error" href="#">Remove</a>
           </div>
         </section>

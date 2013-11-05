@@ -33,6 +33,21 @@ exports.create = function (request, response) {
   })
 }
 
+exports.update = function (request, response) {
+  response.setHeader("Content-Type", "application/json")
+
+  Article
+    .findByIdAndUpdate(request.body.article.id, request.body.article)
+    .exec(function(err, article){
+      if (err) { console.log('errors: '+ err.errors) }
+        else {
+          article.tags = request.body.article.tags;
+          article.save()
+          response.send(article);
+        }
+    })
+}
+
 exports.show = function (request, response) {
   response.setHeader("Content-Type", "application/json");
   Article

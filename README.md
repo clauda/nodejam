@@ -9,11 +9,13 @@ also Mustache, Grunt, and PureCSS
 #### Usage
 
 `npm install`
+
 run `grunt` or `node server.js`
+
+http://localhost:4000
 
 ##### TODO
 
-- edit article
 - delete article
 - comments
 - flash messages

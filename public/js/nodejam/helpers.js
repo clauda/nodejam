@@ -9,3 +9,8 @@ Ember.Handlebars.helper('formatted', function(date) {
 Ember.Handlebars.helper('truncate', function(text) {
   return new Handlebars.SafeString(text.substring(0, 250) + '...');
 });
+
+Ember.Handlebars.helper('taggable', function(text) {
+  var tags = [];
+  if(typeof text === 'string'){ tags = text.split(',') }
+});
