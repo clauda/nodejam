@@ -1,40 +1,22 @@
+var mongoose = require('mongoose')
+  , Article = mongoose.model('Article');
 
-/*
- *  Generic require login routing middleware
- */
-
-exports.requiresLogin = function (req, res, next) {
-  if (!req.isAuthenticated()) {
-    req.session.returnTo = req.originalUrl
-    return res.redirect('#/login')
+exports.requiresLogin = function (request, response, next) {
+  if (!request.isAuthenticated()) {
+    request.session.returnTo = request.originalUrl
+    return response.redirect('#/login')
   }
   next()
 }
 
-/*
- *  User authorization routing middleware
- */
-
-exports.user = {
-  hasAuthorization : function (req, res, next) {
-    if (req.profile.id != req.user.id) {
-      req.flash('info', 'You are not authorized')
-      return res.redirect('/users/'+req.profile.id)
-    }
-    next()
-  }
-}
-
-/*
- *  Article authorization routing middleware
- */
-
 exports.article = {
-  hasAuthorization : function (req, res, next) {
-    if (req.article.user.id != req.user.id) {
-      req.flash('info', 'You are not authorized')
-      return res.redirect('/articles/'+req.article.id)
-    }
-    next()
+  hasAuthorization : function (request, response, next) {
+    var id = request.params.id || request.body.article.id;
+    Article.findById(id).populate('user').exec(function(err, post){
+      if (post.user._id != request.user.id) {
+        return response.redirect('#/login')
+      }
+      next()
+    });
   }
 }

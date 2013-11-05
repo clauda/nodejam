@@ -3,6 +3,6 @@ var mongoose = require('mongoose')
 
 exports.index = function(request, response){
   response.render('index', {
-    title: 'Tagon8 Blog', user: request.user,
+    title: 'Sample Blog', user: request.user,
   });
 };

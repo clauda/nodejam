@@ -8,8 +8,8 @@ var config = {
     app: {
       name: 'nodejam'
     },
-    port: 3000,
-    db: 'mongodb://localhost/nodejam-development'
+    port: 4000,
+    db: 'mongodb://localhost/nodejam-dev'
   },
 
   test: {
@@ -27,7 +27,7 @@ var config = {
       name: 'nodejam'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejam-production'
+    db: 'mongodb://localhost/nodejam'
   }
 };
 

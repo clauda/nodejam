@@ -19,3 +19,40 @@
     </form>
   </div>
 </div>
+
+<div class="pure-u-1">
+  <div class="content">
+    <div class="posts">
+      <h1 class="content-subhead">Your Posts [{{ model.articles.length }}]</h1>
+      
+      {{#each article in model.articles }}
+        <section class="post">
+          <header class="post-header">
+            <h2 class="post-title">{{#link-to 'article' article._id}}{{ article.title }}{{/link-to}}</h2>
+
+            <p class="post-meta">
+              By {{ article.user.name }}  on {{ formatted article.created_at }}
+
+              {{#each tag in article.tags}}
+                {{#link-to 'articles.tagged' tag class="post-category post-category-design"}}{{tag}}{{/link-to}}
+              {{/each}}
+              {{#unless article.published}}
+                <span class='post-category fright'>Draft</span>
+              {{/unless}}
+            </p>
+          </header>
+
+          <div class="post-description">
+            <p>{{ truncate article.body }}</p>
+          </div>
+
+          <div class='actions'>
+            {{#link-to 'articles.edit' article._id class="pure-button pure-button-small pure-button-primary"}} Edit {{/link-to}}
+            <button {{action "remove" article}} class="pure-button pure-button-small pure-button-error">Remove</button>
+          </div>
+        </section>
+      {{/each}}
+
+    </div>
+  </div>
+</div>

@@ -1,3 +1,9 @@
+NodeJam.User = DS.Model.extend({
+  name: DS.attr(),
+  email: DS.attr(),
+  article: DS.hasMany('articles')
+});
+
 NodeJam.Article = DS.Model.extend({
   comments: DS.hasMany('comment'),
   title: DS.attr(),

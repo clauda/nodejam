@@ -1,9 +1,10 @@
 <div class="pure-u-1">
   <div class="content">
-    <form class='pure-form pure-form-aligned' {{action create on="submit"}}>
+    <form class='pure-form pure-form-aligned' {{action update on="submit"}}>
+      {{input type="hidden" value=id}}
 
       <fieldset>
-        <legend>New Post</legend>
+        <legend>Edit Post</legend>
 
         {{ partial "articles/form" }}
 
