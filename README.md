@@ -16,7 +16,6 @@ http://localhost:4000
 
 ##### TODO
 
-- delete article
 - comments
 - flash messages
 - pagination

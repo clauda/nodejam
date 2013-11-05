@@ -5,6 +5,20 @@ NodeJam.AuthController = Ember.ObjectController.extend({
   }).property('@content')
 })
 
+NodeJam.ProfileController = Ember.ObjectController.extend({
+  actions: {
+    remove: function(article) {
+      this.store.find('article', article._id)
+        .then(function(record){ 
+          record.deleteRecord();
+          record.save();
+        }
+      );
+      this.transitionToRoute('index') 
+    }
+  }
+});
+
 NodeJam.ArticlesNewController = Ember.ArrayController.extend({
 
   actions: {
@@ -40,9 +54,7 @@ NodeJam.ArticlesEditController = Ember.ObjectController.extend({
         url: '/articles',
         data: { article: attributes } 
       }).done(function(results) {
-        console.log(results.tags);
         store.update('article', { id: results._id, tags: results.tags });
-        console.log(store.find('article', results._id))
         router.transitionTo('article', results._id) 
       }).fail(function(jqxhr, textStatus, error) {
         console.log(jqxhr);

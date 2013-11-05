@@ -11,7 +11,8 @@ exports.requiresLogin = function (request, response, next) {
 
 exports.article = {
   hasAuthorization : function (request, response, next) {
-    Article.findById(request.body.article.id).populate('user').exec(function(err, post){
+    var id = request.params.id || request.body.article.id;
+    Article.findById(id).populate('user').exec(function(err, post){
       if (post.user._id != request.user.id) {
         return response.redirect('#/login')
       }

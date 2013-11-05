@@ -51,9 +51,18 @@ exports.update = function (request, response) {
 exports.show = function (request, response) {
   response.setHeader("Content-Type", "application/json");
   Article
-    .findById(request.params.article_id)
+    .findById(request.params.id)
     .populate('user')
     .exec(function(err, data){
       response.send({ article: data });
+    });
+}
+
+exports.destroy = function(request, response){
+  Article
+    .findById(request.params.id)
+    .exec(function(err, article){
+      article.remove();
+      response.send();
     });
 }

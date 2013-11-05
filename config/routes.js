@@ -18,5 +18,6 @@ module.exports = function(app, passport){
   app.get('/articles', articles.index);
   app.post('/articles', auth.requiresLogin, articles.create);
   app.put('/articles', articleAuth, articles.update);
-  app.get('/articles/:article_id', articles.show);
+  app.del('/articles/:id', articleAuth, articles.destroy);
+  app.get('/articles/:id', articles.show);
 };

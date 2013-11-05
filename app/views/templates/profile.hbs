@@ -48,7 +48,7 @@
 
           <div class='actions'>
             {{#link-to 'articles.edit' article._id class="pure-button pure-button-small pure-button-primary"}} Edit {{/link-to}}
-            <a class="pure-button pure-button-small pure-button-error" href="#">Remove</a>
+            <button {{action "remove" article}} class="pure-button pure-button-small pure-button-error">Remove</button>
           </div>
         </section>
       {{/each}}

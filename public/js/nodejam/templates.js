@@ -371,7 +371,11 @@ function program1(depth0,data) {
   },inverse:self.noop,fn:self.program(9, program9, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "articles.edit", "article._id", options) : helperMissing.call(depth0, "link-to", "articles.edit", "article._id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n            <a class=\"pure-button pure-button-small pure-button-error\" href=\"#\">Remove</a>\n          </div>\n        </section>\n      ");
+  data.buffer.push("\n            <button ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "remove", "article", {hash:{},contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"pure-button pure-button-small pure-button-error\">Remove</button>\n          </div>\n        </section>\n      ");
   return buffer;
   }
 function program2(depth0,data) {
