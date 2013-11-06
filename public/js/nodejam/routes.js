@@ -6,7 +6,9 @@ NodeJam.Router.map(function() {
     this.route('new');
     this.route('tagged', { path: '/tagged/:tag' });
     this.route('edit', { path: ':articleId/edit' });
-    this.resource('article', { path: ':articleId' });
+    this.resource('article', { path: ':articleId' }, function(){
+      this.resource('article', { path: 'comments' });
+    });
   });
 });
 
@@ -32,7 +34,8 @@ NodeJam.ArticleRoute = Ember.Route.extend({
     if (typeof article.get('tags') === 'string'){
       article.set('tags', article.get('tags').split(','));
       return article;
-    }
+    };
+    if(!article.get('ordered')){ article.set('ordered', article.get('comments')) };
   },
   renderTemplate: function() { this.render('articles.article') }
 });

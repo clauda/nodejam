@@ -16,5 +16,26 @@
         <p>{{{ model.body }}}</p>
       </div>
     </section>
+
+    <section class='comments'>
+      <form class='pure-form pure-form-stacked' {{action addComment on="submit"}}>
+        <fieldset>
+          <div class="pure-g-r">
+            <div class="pure-u-1">
+              <label>Your name...</label>
+              {{input type="text" value=author placeholder="Name/Email/Twitter/site/whatever" class="pure-input-1"}}
+            </div>
+            <div class="pure-u-1">
+              <label>and your comment...</label>
+              {{textarea value=blah cols="80" rows="5" class="pure-input-1" placeholder="Comment here"}}
+            </div>
+          </div>
+          {{ panic "Send" }}
+        </fieldset>
+      </form>
+      {{#each comment in model.ordered}}
+        {{view NodeJam.CommentView commentBinding='comment'}}
+      {{/each}}
+    </section>
   </div>
 </div>

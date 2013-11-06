@@ -1,6 +1,7 @@
 var home = require('../app/controllers/home')
   , users = require('../app/controllers/users')
   , articles = require('../app/controllers/articles')
+  , comments = require('../app/controllers/comments')
   , auth = require('./middlewares/authorization')
   , articleAuth = [auth.requiresLogin, auth.article.hasAuthorization];
 
@@ -20,4 +21,5 @@ module.exports = function(app, passport){
   app.put('/articles', articleAuth, articles.update);
   app.del('/articles/:id', articleAuth, articles.destroy);
   app.get('/articles/:id', articles.show);
+  app.post('/articles/:id/comments', comments.create);
 };

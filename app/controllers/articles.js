@@ -54,7 +54,7 @@ exports.show = function (request, response) {
     .findById(request.params.id)
     .populate('user')
     .exec(function(err, data){
-      response.send({ article: data });
+      response.send({ article:  data.toJSON({ virtuals: true }) });
     });
 }
 

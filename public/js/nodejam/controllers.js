@@ -19,6 +19,25 @@ NodeJam.ProfileController = Ember.ObjectController.extend({
   }
 });
 
+NodeJam.ArticleController = Ember.ObjectController.extend({
+
+  actions: {
+    addComment: function(){
+      var router = this.get('target')
+        , data = this.getProperties('author', 'blah')
+        , post = this.get('model')
+        , store = this.store;
+
+      $.post('/articles/'+ post.get('id') +'/comments', { comment: data }, function(results) {
+        location.reload(); // #FIXME: router.transitionTo('article', results._id);
+      }).fail(function(jqxhr, textStatus, error ) {
+        var errs = JSON.parse(jqxhr.responseText);
+        post.set('errors', errs.errors);
+      });
+    }
+  }
+});
+
 NodeJam.ArticlesNewController = Ember.ArrayController.extend({
 
   actions: {
