@@ -9,3 +9,7 @@ Ember.Handlebars.helper('formatted', function(date) {
 Ember.Handlebars.helper('truncate', function(text) {
   return new Handlebars.SafeString(text.substring(0, 250) + '...');
 });
+
+Ember.Handlebars.helper('guy', function(name) {
+  if (!name){ return 'Anonimous' } else { return name }
+});

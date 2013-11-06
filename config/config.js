@@ -22,12 +22,10 @@ var config = {
   },
 
   production: {
-    root: rootPath,
     app: {
       name: 'nodejam'
     },
-    port: 3000,
-    db: 'mongodb://localhost/nodejam'
+    db: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/'
   }
 };
 

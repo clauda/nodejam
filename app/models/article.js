@@ -16,9 +16,22 @@ var ArticleSchema = new Schema({
   created_at: { type: Date, default: Date.now },
   published: { type: Boolean, default: false },
   user: { type: Schema.ObjectId, ref: 'User' },
-  comments: [{ body: String, author: String, date: Date }],
+  comments: [{
+    blah: { type: String, default : '' },
+    author: { type: String },
+    created_at: { type : Date, default : Date.now }
+  }],
   tags: { type: [], get: getTags, set: treatTags, index: true }
 });
+
+// workaround
+ArticleSchema
+  .virtual('ordered')
+  .get(function() {
+    return this.comments.sortBy('created_at', true);
+  })
+
+ArticleSchema.set('toObject', { virtuals: true });
 
 ArticleSchema.path('title').validate(function (title) {
   return title.length > 0
@@ -27,5 +40,12 @@ ArticleSchema.path('title').validate(function (title) {
 ArticleSchema.path('body').validate(function (body) {
   return body.length > 0
 }, 'Article body cannot be blank')
+
+ArticleSchema.methods = {
+  addComment: function(comment, callback) {
+    this.comments.push({ author: comment.author, blah: comment.blah });
+    this.save(callback);
+  }
+}
 
 mongoose.model('Article', ArticleSchema);

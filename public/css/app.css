@@ -1,4 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
 .post-title a { color: #000; text-decoration: none; }
+.post-description { color: #666; }
 .fright { float: right; }
 
 #menu a {
@@ -59,7 +62,36 @@
   color: #ccc;
 }
 
-.post { border-bottom: 1px dashed #DDD }
+::-webkit-input-placeholder { color: #DDD; }
+:-moz-placeholder { color: #DDD; }
+::-moz-placeholder { color: #DDD; }
+:-ms-input-placeholder { color: #DDD; }
+
+.post { border-bottom: 1px dashed #DDD; }
+.comments { margin: 30px 0; }
+.comments .pure-button { float: right; }
+.comments input[type=text], .comments textarea { 
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #DDD;
+  box-shadow: none;
+  margin: 1em 0;
+  color: #777;
+  font-size: 18px;
+  font-family: "Georgia", serif;
+  line-height: 26px;
+}
+.comments .comment { border-bottom: 1px dashed #DDD; padding: 20px; }
+.comment .content-quote {
+  font-family: "Georgia", serif;
+  color: #666;
+  font-style: italic;
+  line-height: 1.8em;
+  border-left: 5px solid #ddd;
+  padding-left: 1.5em;
+}
+.comment span { color: #999; font-size: 11px; font-family: "Georgia", serif; letter-spacing: 1px; }
+blockquote { margin: 1em 10px; }
 .actions { position: absolute; right: 50px; margin-top: -10px; }
 
 .pure-button-success,

@@ -10,7 +10,7 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "article", "article.id", options) : helperMissing.call(depth0, "link-to", "article", "article.id", options));
+  stack2 = ((stack1 = helpers['link-to'] || depth0['link-to']),stack1 ? stack1.call(depth0, "article.index", "article.id", options) : helperMissing.call(depth0, "link-to", "article.index", "article.id", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</h2>\n\n      <p class=\"post-meta\">\n        By ");
   hashTypes = {};
@@ -157,6 +157,19 @@ function program4(depth0,data) {
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "tag", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
   }
 
+function program6(depth0,data) {
+  
+  var buffer = '', hashContexts, hashTypes;
+  data.buffer.push("\n        ");
+  hashContexts = {'commentBinding': depth0};
+  hashTypes = {'commentBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "NodeJam.CommentView", {hash:{
+    'commentBinding': ("comment")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n      ");
+  return buffer;
+  }
+
   data.buffer.push("<div class=\"pure-u-1\">\n  <div class=\"content\">\n    <section class=\"post\">\n      <header class=\"post-header\">\n        <h2 class='post-title'>");
   hashTypes = {};
   hashContexts = {};
@@ -184,7 +197,69 @@ function program4(depth0,data) {
     'unescaped': ("true")
   },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("</p>\n      </div>\n    </section>\n  </div>\n</div>\n");
+  data.buffer.push("</p>\n      </div>\n    </section>\n\n    <section class='comments'>\n      <form class='pure-form pure-form-stacked' ");
+  hashContexts = {'on': depth0};
+  hashTypes = {'on': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "addComment", {hash:{
+    'on': ("submit")
+  },contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        <fieldset>\n          <div class=\"pure-g-r\">\n            <div class=\"pure-u-1\">\n              <label>Your name...</label>\n              ");
+  hashContexts = {'type': depth0,'value': depth0,'placeholder': depth0,'class': depth0};
+  hashTypes = {'type': "STRING",'value': "ID",'placeholder': "STRING",'class': "STRING"};
+  options = {hash:{
+    'type': ("text"),
+    'value': ("author"),
+    'placeholder': ("Name/Email/Twitter/site/whatever"),
+    'class': ("pure-input-1")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n            </div>\n            <div class=\"pure-u-1\">\n              <label>and your comment...</label>\n              ");
+  hashContexts = {'value': depth0,'cols': depth0,'rows': depth0,'class': depth0,'placeholder': depth0};
+  hashTypes = {'value': "ID",'cols': "STRING",'rows': "STRING",'class': "STRING",'placeholder': "STRING"};
+  options = {hash:{
+    'value': ("blah"),
+    'cols': ("80"),
+    'rows': ("5"),
+    'class': ("pure-input-1"),
+    'placeholder': ("Comment here")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.textarea || depth0.textarea),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "textarea", options))));
+  data.buffer.push("\n            </div>\n          </div>\n          ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Send", options) : helperMissing.call(depth0, "panic", "Send", options))));
+  data.buffer.push("\n        </fieldset>\n      </form>\n      ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, "comment", "in", "model.ordered", {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n    </section>\n  </div>\n</div>\n");
+  return buffer;
+  
+});
+
+Ember.TEMPLATES["articles/comment"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing;
+
+
+  data.buffer.push("<div class='comment'>\n  <blockquote class='content-quote'>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "comment.blah", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</blockquote>\n  <span class='fright'> -- ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.guy || depth0.guy),stack1 ? stack1.call(depth0, "comment.author", options) : helperMissing.call(depth0, "guy", "comment.author", options))));
+  data.buffer.push(" on ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.formatted || depth0.formatted),stack1 ? stack1.call(depth0, "comment.created_at", options) : helperMissing.call(depth0, "formatted", "comment.created_at", options))));
+  data.buffer.push("</span>\n</div>\n");
   return buffer;
   
 });
@@ -218,7 +293,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Salvar", options) : helperMissing.call(depth0, "panic", "Salvar", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Save", options) : helperMissing.call(depth0, "panic", "Save", options))));
   data.buffer.push("\n      </fieldset>\n    </form>\n  </div>\n</div>\n");
   return buffer;
   
@@ -245,7 +320,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Salvar", options) : helperMissing.call(depth0, "panic", "Salvar", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Save", options) : helperMissing.call(depth0, "panic", "Save", options))));
   data.buffer.push("\n      </fieldset>\n    </form>\n  </div>\n</div>\n");
   return buffer;
   
@@ -319,7 +394,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Entrar", options) : helperMissing.call(depth0, "panic", "Entrar", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Enter", options) : helperMissing.call(depth0, "panic", "Enter", options))));
   data.buffer.push("\n      </fieldset>\n    </form>\n  </div>\n</div>\n");
   return buffer;
   
@@ -442,7 +517,7 @@ function program9(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Salvar", options) : helperMissing.call(depth0, "panic", "Salvar", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Save", options) : helperMissing.call(depth0, "panic", "Save", options))));
   data.buffer.push("\n        </div>\n\n      </fieldset>\n    </form>\n  </div>\n</div>\n\n<div class=\"pure-u-1\">\n  <div class=\"content\">\n    <div class=\"posts\">\n      <h1 class=\"content-subhead\">Your Posts [");
   hashTypes = {};
   hashContexts = {};
@@ -500,7 +575,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Entrar", options) : helperMissing.call(depth0, "panic", "Entrar", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.panic || depth0.panic),stack1 ? stack1.call(depth0, "Register", options) : helperMissing.call(depth0, "panic", "Register", options))));
   data.buffer.push("\n\n      </fieldset>\n    </form>\n  </div>\n</div>");
   return buffer;
   

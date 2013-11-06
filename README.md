@@ -16,7 +16,6 @@ http://localhost:4000
 
 ##### TODO
 
-- comments
 - flash messages
 - pagination
 - coffee compile
