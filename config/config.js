@@ -25,6 +25,7 @@ var config = {
     app: {
       name: 'nodejam'
     },
+    port: process.env.OPENSHIFT_NODEJS_PORT,
     db: process.env.OPENSHIFT_MONGODB_DB_URL
   }
 };
