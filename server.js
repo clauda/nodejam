@@ -1,8 +1,9 @@
-var express = require('express'),
-  mongoose = require('mongoose'),
-  fs = require('fs'),
-  passport = require('passport'),
-  config = require('./config/config');
+var express = require('express')
+  , mongoose = require('mongoose')
+  , fs = require('fs')
+  , passport = require('passport')
+  , host  = process.env.OPENSHIFT_NODEJS_IP || 'localhost'
+  , config = require('./config/config');
 
 mongoose.connect(config.db);
 var db = mongoose.connection;
@@ -25,6 +26,6 @@ var app = express();
 require('./config/express')(app, config, passport)
 require('./config/routes')(app, passport);
 
-app.listen(config.port);
+app.listen(config.port, host, function(){ console.log('Paaaarla!') });
 
 exports = module.exports = app
