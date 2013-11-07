@@ -5,6 +5,8 @@ NodeJS w/ ExpressJS, EmberJS, Mongoose
 
 also Mustache, Grunt, and PureCSS
 
+[Read about](http://scriptogr.am/krawdyah/post/sample-blog-with-nodejs-and-emberjs)
+
 
 #### Usage
 
