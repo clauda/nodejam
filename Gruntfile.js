@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-ember-templates');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -31,6 +32,13 @@ module.exports = function (grunt) {
             'public/coffee/views.coffee',
             'public/coffee/controllers.coffee',
             'public/coffee/routes.coffee' ]
+        }
+      }
+    },
+    uglify: {
+      nodejam: {
+        files: {
+          'public/js/nodejam.min.js': ['public/js/application.js']
         }
       }
     },
