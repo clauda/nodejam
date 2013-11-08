@@ -11,12 +11,27 @@ module.exports = function (grunt) {
   var reloadPort = 35729, files;
 
   grunt.loadNpmTasks('grunt-ember-templates');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     develop: {
       server: {
         file: 'server.js'
+      }
+    },
+    coffee: {
+      compile: {
+        files: {  
+          'public/js/application.js': [
+            'public/js/templates.js', 
+            'public/coffee/nodejam.coffee',
+            'public/coffee/helpers.coffee',
+            'public/coffee/models.coffee',
+            'public/coffee/views.coffee',
+            'public/coffee/controllers.coffee',
+            'public/coffee/routes.coffee' ]
+        }
       }
     },
     watch: {

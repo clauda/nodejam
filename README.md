@@ -20,5 +20,4 @@ http://localhost:4000
 
 - flash messages
 - pagination
-- coffee compile
 - tests
