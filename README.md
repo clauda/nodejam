@@ -21,3 +21,7 @@ http://localhost:4000
 - flash messages
 - pagination
 - tests
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/krawdyah/nodejam/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
